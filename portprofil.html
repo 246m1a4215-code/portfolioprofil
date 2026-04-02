@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portfolio</title>
+<style>
+body { font-family: Arial; margin:0; background:#f4f4f4; }
+.container { width:90%; margin:auto; }
+.login, .portfolio { display:none; }
+.card { background:#fff; padding:20px; margin:15px 0; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2);} 
+button { padding:10px 15px; border:none; background:#007bff; color:#fff; border-radius:5px; cursor:pointer; }
+input { padding:10px; margin:5px 0; width:100%; }
+.header { background:#007bff; color:#fff; padding:15px; text-align:center; }
+.logout { float:right; background:red; }
+</style>
+</head>
+<body><div class="login container" id="loginPage">
+  <h2>Student Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div><div class="portfolio" id="portfolioPage">
+  <div class="header">
+    <h2>My Portfolio</h2>
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>  <div class="container">
+    <div class="card">
+      <h3>10th & Intermediate</h3>
+      <p>10th School: ABC High School - 90%</p>
+      <p>Intermediate College: XYZ Junior College - 88%</p>
+    </div><div class="card">
+  <h3>Skills</h3>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Certificates</h3>
+  <ul>
+    <li>Web Development Certificate</li>
+    <li>Python Course Certificate</li>
+  </ul>
+</div>
+
+  </div>
+</div><script>
+// default login credentials
+const validUser = "student";
+const validPass = "1234";
+
+// show login first
+window.onload = () => {
+  document.getElementById("loginPage").style.display = "block";
+};
+
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if(user === validUser && pass === validPass) {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("portfolioPage").style.display = "block";
+  } else {
+    alert("Invalid Login!");
+  }
+}
+
+function logout() {
+  document.getElementById("portfolioPage").style.display = "none";
+  document.getElementById("loginPage").style.display = "block";
+}
+</script></body>
+</html>
